@@ -1,0 +1,40 @@
+{
+  "name": "koakit",
+  "version": "0.0.2",
+  "description": "Koa support for Restkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "koa",
+    "server",
+    "toolkit",
+    "authorization",
+    "authentication",
+    "roles",
+    "resources",
+    "activities"
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "koa-bodyparser": "^2.2.0",
+    "reflect-metadata": "^0.1.3",
+    "request": "^2.72.0"
+  },
+  "dependencies": {
+    "koa": "^2.0.0",
+    "koa-router": "^7.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamchairs/koakit.git"
+  },
+  "author": "Micah Williamson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamchairs/koakit/issues"
+  },
+  "homepage": "https://github.com/iamchairs/koakit#readme"
+}
