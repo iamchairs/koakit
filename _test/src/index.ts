@@ -1,8 +1,6 @@
 declare var require: any;
 
-import {Restkit} from 'restkit';
-
-import {KoaServer} from '../../index';
+import {Koakit} from '../../index';
 
 let bodyParser = require('koa-bodyparser');
 
@@ -12,8 +10,7 @@ import './middleware/router';
 import './rules/router';
 import './user/router';
 
-Restkit.start({
-  server: new KoaServer(),
+Koakit.start({
   middleware: [
     bodyParser()
   ]

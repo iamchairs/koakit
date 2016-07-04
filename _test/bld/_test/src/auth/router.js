@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-const route_1 = require('restkit/route');
-const injectables_1 = require('../../../injectables');
-const auth_1 = require('restkit/auth');
+const index_1 = require('../../../index');
+const index_2 = require('../../../index');
+const index_3 = require('../../../index');
 class AuthService {
     static fooAuth() {
         return 'fooauth';
@@ -26,17 +26,17 @@ class AuthService {
             return Promise.reject('foo');
         }
         else if (auth === 'barauth-rejectspecial') {
-            return Promise.reject(new route_1.Response(405, 'foo'));
+            return Promise.reject(new index_1.Response(405, 'foo'));
         }
         return auth;
     }
 }
 __decorate([
-    auth_1.AuthHandler('Foo', true)
+    index_3.AuthHandler('Foo', true)
 ], AuthService, "fooAuth", null);
 __decorate([
-    auth_1.AuthHandler('Bar'),
-    __param(0, injectables_1.Header('Authorization'))
+    index_3.AuthHandler('Bar'),
+    __param(0, index_2.Header('Authorization'))
 ], AuthService, "barAuth", null);
 exports.AuthService = AuthService;
 class AuthRouter {
@@ -48,11 +48,11 @@ class AuthRouter {
     }
 }
 __decorate([
-    route_1.Route('GET', '/auth/foo'),
-    __param(0, auth_1.Auth())
+    index_1.Route('GET', '/auth/foo'),
+    __param(0, index_3.Auth())
 ], AuthRouter, "getWidgetA", null);
 __decorate([
-    route_1.Route('GET', '/auth/bar'),
-    __param(0, auth_1.Auth('Bar'))
+    index_1.Route('GET', '/auth/bar'),
+    __param(0, index_3.Auth('Bar'))
 ], AuthRouter, "getWidgetB", null);
 exports.AuthRouter = AuthRouter;

@@ -5,8 +5,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-const route_1 = require('restkit/route');
-const middleware_1 = require('restkit/middleware');
+const index_1 = require('../../../index');
+const index_2 = require('../../../index');
 let middlewareValue = '';
 class MiddlewareService {
     static routerMiddleware(ctx, koaNext, expressNext) {
@@ -38,14 +38,14 @@ let MiddlewareRouter = class MiddlewareRouter {
     }
 };
 __decorate([
-    route_1.Route('GET', '/router')
+    index_1.Route('GET', '/router')
 ], MiddlewareRouter, "routerMiddleware", null);
 __decorate([
-    route_1.Route('GET', '/route'),
-    middleware_1.RouteMiddleware(MiddlewareService.routeMiddleware)
+    index_1.Route('GET', '/route'),
+    index_2.RouteMiddleware(MiddlewareService.routeMiddleware)
 ], MiddlewareRouter, "routeMiddleware", null);
 MiddlewareRouter = __decorate([
-    route_1.Router('/middleware'),
-    middleware_1.RouterMiddleware(MiddlewareService.routerMiddleware)
+    index_1.Router('/middleware'),
+    index_2.RouterMiddleware(MiddlewareService.routerMiddleware)
 ], MiddlewareRouter);
 exports.MiddlewareRouter = MiddlewareRouter;

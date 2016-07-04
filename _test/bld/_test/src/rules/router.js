@@ -8,19 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-const route_1 = require('restkit/route');
-const rule_1 = require('restkit/rule');
-const auth_1 = require('restkit/auth');
-const injectables_1 = require('../../../injectables');
+const index_1 = require('../../../index');
+const index_2 = require('../../../index');
+const index_3 = require('../../../index');
+const index_4 = require('../../../index');
 class RuleService {
     static failRule() {
         return Promise.reject('bar');
     }
     static failRuleCustomResponse() {
-        return Promise.resolve(new route_1.Response(400, 'Test'));
+        return Promise.resolve(new index_1.Response(400, 'Test'));
     }
     static failRuleCustomResponseRejected() {
-        return Promise.reject(new route_1.Response(400, 'Test'));
+        return Promise.reject(new index_1.Response(400, 'Test'));
     }
     static passRule() {
         return Promise.resolve();
@@ -30,24 +30,24 @@ class RuleService {
     }
 }
 __decorate([
-    rule_1.RuleHandler('FailRule')
+    index_2.RuleHandler('FailRule')
 ], RuleService, "failRule", null);
 __decorate([
-    rule_1.RuleHandler('FailRuleCustomResponse')
+    index_2.RuleHandler('FailRuleCustomResponse')
 ], RuleService, "failRuleCustomResponse", null);
 __decorate([
-    rule_1.RuleHandler('FailRuleCustomResponseRejected')
+    index_2.RuleHandler('FailRuleCustomResponseRejected')
 ], RuleService, "failRuleCustomResponseRejected", null);
 __decorate([
-    rule_1.RuleHandler('PassRule')
+    index_2.RuleHandler('PassRule')
 ], RuleService, "passRule", null);
 __decorate([
-    rule_1.RuleHandler('ComplexRule'),
-    __param(0, auth_1.Auth()),
-    __param(1, injectables_1.Param('a')),
-    __param(2, injectables_1.Query('b')),
-    __param(3, injectables_1.Header('c')),
-    __param(4, injectables_1.Body())
+    index_2.RuleHandler('ComplexRule'),
+    __param(0, index_3.Auth()),
+    __param(1, index_4.Param('a')),
+    __param(2, index_4.Query('b')),
+    __param(3, index_4.Header('c')),
+    __param(4, index_4.Body())
 ], RuleService, "complexRule", null);
 exports.RuleService = RuleService;
 class RuleRouter {
@@ -80,41 +80,41 @@ class RuleRouter {
     }
 }
 __decorate([
-    route_1.Route('GET', '/rules/fail'),
-    rule_1.Rule('FailRule')
+    index_1.Route('GET', '/rules/fail'),
+    index_2.Rule('FailRule')
 ], RuleRouter, "failRule", null);
 __decorate([
-    route_1.Route('GET', '/rules/failcustomresponse'),
-    rule_1.Rule('FailRuleCustomResponse')
+    index_1.Route('GET', '/rules/failcustomresponse'),
+    index_2.Rule('FailRuleCustomResponse')
 ], RuleRouter, "failRuleCustomResponse", null);
 __decorate([
-    route_1.Route('GET', '/rules/failcustomresponserejected'),
-    rule_1.Rule('FailRuleCustomResponseRejected')
+    index_1.Route('GET', '/rules/failcustomresponserejected'),
+    index_2.Rule('FailRuleCustomResponseRejected')
 ], RuleRouter, "failRuleCustomResponseRejected", null);
 __decorate([
-    route_1.Route('GET', '/rules/pass'),
-    rule_1.Rule('PassRule')
+    index_1.Route('GET', '/rules/pass'),
+    index_2.Rule('PassRule')
 ], RuleRouter, "passRule", null);
 __decorate([
-    route_1.Route('GET', '/rules/or/pass'),
-    rule_1.Rule('FailRule', 'PassRule')
+    index_1.Route('GET', '/rules/or/pass'),
+    index_2.Rule('FailRule', 'PassRule')
 ], RuleRouter, "passOr", null);
 __decorate([
-    route_1.Route('GET', '/rules/or/fail'),
-    rule_1.Rule('FailRule', 'FailRule')
+    index_1.Route('GET', '/rules/or/fail'),
+    index_2.Rule('FailRule', 'FailRule')
 ], RuleRouter, "failOr", null);
 __decorate([
-    route_1.Route('GET', '/rules/and/pass'),
-    rule_1.Rule('PassRule'),
-    rule_1.Rule('PassRule')
+    index_1.Route('GET', '/rules/and/pass'),
+    index_2.Rule('PassRule'),
+    index_2.Rule('PassRule')
 ], RuleRouter, "passAnd", null);
 __decorate([
-    route_1.Route('GET', '/rules/and/fail'),
-    rule_1.Rule('PassRule'),
-    rule_1.Rule('FailRule')
+    index_1.Route('GET', '/rules/and/fail'),
+    index_2.Rule('PassRule'),
+    index_2.Rule('FailRule')
 ], RuleRouter, "failAnd", null);
 __decorate([
-    route_1.Route('POST', '/rules/complex/:a'),
-    rule_1.Rule('ComplexRule')
+    index_1.Route('POST', '/rules/complex/:a'),
+    index_2.Rule('ComplexRule')
 ], RuleRouter, "complexRule", null);
 exports.RuleRouter = RuleRouter;

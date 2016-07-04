@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-const route_1 = require('restkit/route');
-const injectables_1 = require('restkit/injectables');
-const injectables_2 = require('../../../injectables');
+const index_1 = require('../../../index');
+const index_2 = require('../../../index');
+const index_3 = require('../../../index');
 class UserRouter {
     static basicGet() {
         return 'get';
@@ -40,7 +40,7 @@ class UserRouter {
         return Promise.reject('foo');
     }
     static rejectedPromiseWithResponse() {
-        return Promise.reject(new route_1.Response(405, 'foo'));
+        return Promise.reject(new index_1.Response(405, 'foo'));
     }
     static resolvedPromise() {
         return Promise.resolve();
@@ -49,10 +49,10 @@ class UserRouter {
         return Promise.resolve('foo');
     }
     static resolvedPromiseWithResponse() {
-        return Promise.resolve(new route_1.Response(201, 'foo'));
+        return Promise.resolve(new index_1.Response(201, 'foo'));
     }
     static basicResponse() {
-        return new route_1.Response(201, 'foo');
+        return new index_1.Response(201, 'foo');
     }
     static getWithDefaultQuery(q) {
         return q;
@@ -72,67 +72,67 @@ class UserRouter {
     }
 }
 __decorate([
-    route_1.Route('GET', '/basic')
+    index_1.Route('GET', '/basic')
 ], UserRouter, "basicGet", null);
 __decorate([
-    route_1.Route('GET', '/basic/param/:param'),
-    __param(0, injectables_2.Param('param'))
+    index_1.Route('GET', '/basic/param/:param'),
+    __param(0, index_3.Param('param'))
 ], UserRouter, "getWithParam", null);
 __decorate([
-    route_1.Route('GET', '/basic/query'),
-    __param(0, injectables_2.Query('q'))
+    index_1.Route('GET', '/basic/query'),
+    __param(0, index_3.Query('q'))
 ], UserRouter, "getWithQuery", null);
 __decorate([
-    route_1.Route('GET', '/basic/optionalquery'),
-    __param(0, injectables_2.Query('q?'))
+    index_1.Route('GET', '/basic/optionalquery'),
+    __param(0, index_3.Query('q?'))
 ], UserRouter, "getWithOptionalQuery", null);
 __decorate([
-    route_1.Route('GET', '/basic/context'),
-    __param(0, injectables_1.Context())
+    index_1.Route('GET', '/basic/context'),
+    __param(0, index_2.Context())
 ], UserRouter, "getContext", null);
 __decorate([
-    route_1.Route('GET', '/basic/errorthrown')
+    index_1.Route('GET', '/basic/errorthrown')
 ], UserRouter, "errorThrown", null);
 __decorate([
-    route_1.Route('GET', '/basic/errorthrownwithmessage')
+    index_1.Route('GET', '/basic/errorthrownwithmessage')
 ], UserRouter, "errorThrownWithMessage", null);
 __decorate([
-    route_1.Route('GET', '/basic/rejectedpromise')
+    index_1.Route('GET', '/basic/rejectedpromise')
 ], UserRouter, "rejectedPromise", null);
 __decorate([
-    route_1.Route('GET', '/basic/rejectedpromisewithresponse')
+    index_1.Route('GET', '/basic/rejectedpromisewithresponse')
 ], UserRouter, "rejectedPromiseWithResponse", null);
 __decorate([
-    route_1.Route('GET', '/basic/resolvedpromise')
+    index_1.Route('GET', '/basic/resolvedpromise')
 ], UserRouter, "resolvedPromise", null);
 __decorate([
-    route_1.Route('GET', '/basic/resolvedpromisewithmessage')
+    index_1.Route('GET', '/basic/resolvedpromisewithmessage')
 ], UserRouter, "resolvedPromiseWithMessage", null);
 __decorate([
-    route_1.Route('GET', '/basic/resolvedpromisewithresponse')
+    index_1.Route('GET', '/basic/resolvedpromisewithresponse')
 ], UserRouter, "resolvedPromiseWithResponse", null);
 __decorate([
-    route_1.Route('GET', '/basic/response')
+    index_1.Route('GET', '/basic/response')
 ], UserRouter, "basicResponse", null);
 __decorate([
-    route_1.Route('GET', '/basic/defaultquery'),
-    __param(0, injectables_2.Query('q=def'))
+    index_1.Route('GET', '/basic/defaultquery'),
+    __param(0, index_3.Query('q=def'))
 ], UserRouter, "getWithDefaultQuery", null);
 __decorate([
-    route_1.Route('PUT', '/basic')
+    index_1.Route('PUT', '/basic')
 ], UserRouter, "basicPut", null);
 __decorate([
-    route_1.Route('PUT', '/basic/noresponse')
+    index_1.Route('PUT', '/basic/noresponse')
 ], UserRouter, "putNoResponse", null);
 __decorate([
-    route_1.Route('PUT', '/basic/payload'),
-    route_1.Route('POST', '/basic/payload'),
-    __param(0, injectables_2.Body())
+    index_1.Route('PUT', '/basic/payload'),
+    index_1.Route('POST', '/basic/payload'),
+    __param(0, index_3.Body())
 ], UserRouter, "putPayload", null);
 __decorate([
-    route_1.Route('POST', '/basic')
+    index_1.Route('POST', '/basic')
 ], UserRouter, "basicPost", null);
 __decorate([
-    route_1.Route('DELETE', '/basic')
+    index_1.Route('DELETE', '/basic')
 ], UserRouter, "basicDelete", null);
 exports.UserRouter = UserRouter;

@@ -1,32 +1,25 @@
-Koakit
-==========
+[<img src="https://s32.postimg.org/4n792cr79/restkitkoa.png" height="100"/>](https://github.com/iamchairs/koakit)
 
 Koa support for [Restkit](https://github.com/iamchairs/restkit).
 
 ## Install
 
 ```
-npm install restkit --save
 npm install koakit --save
 ```
 
 ## Start
 
 ```typescript
-import {Restkit} from 'restkit';
 import {KoaServer} from 'koakit';
 
-Restkit.start({
-  server: new KoaServer()
-});
+Koakit.start();
 ```
 
 ## Use
 
 ```typescript
-import {Route} from 'restkit';
-
-import {Param, Query, Header, Body} from 'koakit';
+import {Route, Param, Query, Header, Body} from 'koakit';
 
 export class UserRouter {
   @Route('PUT', '/user/:id')
