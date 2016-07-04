@@ -11,7 +11,7 @@ npm install koakit --save
 ## Start
 
 ```typescript
-import {KoaServer} from 'koakit';
+import {Koakit} from 'koakit';
 
 Koakit.start();
 ```
@@ -32,10 +32,10 @@ export class UserRouter {
 
 [Restkit](https://github.com/iamchairs/restkit)
 
-[Github](https://github.com/iamchairs/expresskit)
+[Github](https://github.com/iamchairs/koakit)
 
-[Issues](https://github.com/iamchairs/expresskit/issues)
+[Issues](https://github.com/iamchairs/koakit/issues)
 
-[NPM](https://www.npmjs.com/package/expresskit)
+[NPM](https://www.npmjs.com/package/koakit)
 
 [Twitter](https://twitter.com/micahwllmsn)
