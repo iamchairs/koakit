@@ -1,7 +1,7 @@
 Koakit
 ==========
 
-Koa support for Restkit.
+Koa support for [Restkit](https://github.com/iamchairs/restkit).
 
 ## Install
 
