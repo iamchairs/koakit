@@ -2,7 +2,7 @@ import {Restkit} from 'restkit';
 import {IStaticUriPath} from 'restkit';
 import {KoaServer} from './server';
 
-export interface IExpresskitConfig {
+export interface IKoakitConfig {
   server?: any;
   port?: number;
   timezone?: string;
@@ -12,7 +12,7 @@ export interface IExpresskitConfig {
 }
 
 export class Koakit {
-  public static start(config: IExpresskitConfig) {
+  public static start(config: IKoakitConfig = {}) {
     config.server = config.server || new KoaServer();
     Restkit.start(<any>config);
   }
