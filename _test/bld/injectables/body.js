@@ -1,6 +1,6 @@
 "use strict";
 const injector_1 = require('restkit/injector');
-const route_1 = require('restkit/route');
+const response_1 = require('restkit/response');
 const dto_1 = require('restkit/dto');
 function Body(dto) {
     return function (object, method, index) {
@@ -25,11 +25,11 @@ class BodyInjectionResolver {
                 dto_1.DTOManager.scrubIn(body, dto);
                 let err = dto_1.DTOManager.validate(body, dto);
                 if (err) {
-                    return Promise.reject(new route_1.Response(400, err));
+                    return Promise.reject(response_1.Response.BadRequest(err));
                 }
             }
             else {
-                return Promise.reject(new route_1.Response(400, 'Body expected'));
+                return Promise.reject(response_1.Response.BadRequest('Body expected'));
             }
         }
         return Promise.resolve(body);

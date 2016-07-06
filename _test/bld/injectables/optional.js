@@ -1,5 +1,5 @@
 "use strict";
-const route_1 = require('restkit/route');
+const response_1 = require('restkit/response');
 class OptionalResolver {
     getOptionalParts(name) {
         let optional = false;
@@ -33,7 +33,7 @@ class OptionalResolver {
                 return Promise.resolve(optionalParts.default);
             }
             else {
-                return Promise.reject(new route_1.Response(400, `Required ${type} missing: ${optionalParts.name}`));
+                return Promise.reject(response_1.Response.BadRequest(`Required ${type} missing: ${optionalParts.name}`));
             }
         }
     }

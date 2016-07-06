@@ -4,8 +4,9 @@ import {Koakit} from '../../index';
 
 let bodyParser = require('koa-bodyparser');
 
-import './auth/router';
+import './resource/router';
 import './basic/router';
+import './response/router';
 import './middleware/router';
 import './rules/router';
 import './user/router';

@@ -88,7 +88,7 @@ class UserService {
     }
 }
 __decorate([
-    index_2.AuthHandler('User'),
+    index_2.Resolver('User'),
     __param(0, index_4.Header('Authorization'))
 ], UserService, "resolveAuth", null);
 exports.UserService = UserService;
@@ -100,7 +100,7 @@ class UserRouter {
 __decorate([
     index_1.Route('PUT', '/user'),
     index_3.ResponseType(User),
-    __param(0, index_2.Auth('User')),
+    __param(0, index_2.Resource('User')),
     __param(1, index_4.Body(User))
 ], UserRouter, "updateUser", null);
 exports.UserRouter = UserRouter;

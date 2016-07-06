@@ -11,6 +11,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 const index_1 = require('../../../index');
 const index_2 = require('../../../index');
 const index_3 = require('../../../index');
+const index_4 = require('../../../index');
+const index_5 = require('../../../index');
 class UserRouter {
     static basicGet() {
         return 'get';
@@ -36,11 +38,14 @@ class UserRouter {
     static errorThrownWithMessage() {
         throw new Error('foo');
     }
+    static errorThrownWithResponse() {
+        throw index_1.Response.BadRequest();
+    }
     static rejectedPromise() {
         return Promise.reject('foo');
     }
     static rejectedPromiseWithResponse() {
-        return Promise.reject(new index_1.Response(405, 'foo'));
+        return Promise.reject(index_1.Response.MethodNotAllowed('foo'));
     }
     static resolvedPromise() {
         return Promise.resolve();
@@ -57,6 +62,12 @@ class UserRouter {
     static getWithDefaultQuery(q) {
         return q;
     }
+    static getWithDefaultErrorCode() {
+        return Promise.reject('foo');
+    }
+    static getWithDefaultResponseCode() {
+        return 'foo';
+    }
     static basicPut() {
         return 'put';
     }
@@ -64,11 +75,29 @@ class UserRouter {
     static putPayload(payload) {
         return payload;
     }
+    static basicPatch() {
+        return 'patch';
+    }
     static basicPost() {
         return 'post';
     }
     static basicDelete() {
         return 'delete';
+    }
+    static getAlias() {
+        return 'getalias';
+    }
+    static putAlias() {
+        return 'putalias';
+    }
+    static postAlias() {
+        return 'postalias';
+    }
+    static patchAlias() {
+        return 'patchalias';
+    }
+    static deleteAlias() {
+        return 'deletealias';
     }
 }
 __decorate([
@@ -76,19 +105,19 @@ __decorate([
 ], UserRouter, "basicGet", null);
 __decorate([
     index_1.Route('GET', '/basic/param/:param'),
-    __param(0, index_3.Param('param'))
+    __param(0, index_4.Param('param'))
 ], UserRouter, "getWithParam", null);
 __decorate([
     index_1.Route('GET', '/basic/query'),
-    __param(0, index_3.Query('q'))
+    __param(0, index_4.Query('q'))
 ], UserRouter, "getWithQuery", null);
 __decorate([
     index_1.Route('GET', '/basic/optionalquery'),
-    __param(0, index_3.Query('q?'))
+    __param(0, index_4.Query('q?'))
 ], UserRouter, "getWithOptionalQuery", null);
 __decorate([
     index_1.Route('GET', '/basic/context'),
-    __param(0, index_2.Context())
+    __param(0, index_3.Context())
 ], UserRouter, "getContext", null);
 __decorate([
     index_1.Route('GET', '/basic/errorthrown')
@@ -96,6 +125,9 @@ __decorate([
 __decorate([
     index_1.Route('GET', '/basic/errorthrownwithmessage')
 ], UserRouter, "errorThrownWithMessage", null);
+__decorate([
+    index_1.Route('GET', '/basic/errorthrownwithresponse')
+], UserRouter, "errorThrownWithResponse", null);
 __decorate([
     index_1.Route('GET', '/basic/rejectedpromise')
 ], UserRouter, "rejectedPromise", null);
@@ -116,8 +148,16 @@ __decorate([
 ], UserRouter, "basicResponse", null);
 __decorate([
     index_1.Route('GET', '/basic/defaultquery'),
-    __param(0, index_3.Query('q=def'))
+    __param(0, index_4.Query('q=def'))
 ], UserRouter, "getWithDefaultQuery", null);
+__decorate([
+    index_1.Route('GET', '/basic/defaulterrorcode'),
+    index_2.ErrorCode(505)
+], UserRouter, "getWithDefaultErrorCode", null);
+__decorate([
+    index_1.Route('GET', '/basic/defaultresponsecode'),
+    index_2.ResponseCode(201)
+], UserRouter, "getWithDefaultResponseCode", null);
 __decorate([
     index_1.Route('PUT', '/basic')
 ], UserRouter, "basicPut", null);
@@ -126,13 +166,32 @@ __decorate([
 ], UserRouter, "putNoResponse", null);
 __decorate([
     index_1.Route('PUT', '/basic/payload'),
+    index_1.Route('PATCH', '/basic/payload'),
     index_1.Route('POST', '/basic/payload'),
-    __param(0, index_3.Body())
+    __param(0, index_4.Body())
 ], UserRouter, "putPayload", null);
+__decorate([
+    index_1.Route('PATCH', '/basic')
+], UserRouter, "basicPatch", null);
 __decorate([
     index_1.Route('POST', '/basic')
 ], UserRouter, "basicPost", null);
 __decorate([
     index_1.Route('DELETE', '/basic')
 ], UserRouter, "basicDelete", null);
+__decorate([
+    index_5.GET('/alias')
+], UserRouter, "getAlias", null);
+__decorate([
+    index_5.PUT('/alias')
+], UserRouter, "putAlias", null);
+__decorate([
+    index_5.POST('/alias')
+], UserRouter, "postAlias", null);
+__decorate([
+    index_5.PATCH('/alias')
+], UserRouter, "patchAlias", null);
+__decorate([
+    index_5.DELETE('/alias')
+], UserRouter, "deleteAlias", null);
 exports.UserRouter = UserRouter;
