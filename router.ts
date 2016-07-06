@@ -29,6 +29,10 @@ export class KoaRouter extends RestkitRouter {
     return this.router.post.apply(this.router, args);
   }
 
+  public patch (... args: any[]) {
+    return this.router.patch.apply(this.router, args);
+  }
+
   public delete (... args: any[]) {
     return this.router.delete.apply(this.router, args);
   }

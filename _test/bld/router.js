@@ -24,6 +24,9 @@ class KoaRouter extends router_1.RestkitRouter {
     post(...args) {
         return this.router.post.apply(this.router, args);
     }
+    patch(...args) {
+        return this.router.patch.apply(this.router, args);
+    }
     delete(...args) {
         return this.router.delete.apply(this.router, args);
     }

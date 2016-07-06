@@ -11,7 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 const index_1 = require('../../../index');
 const index_2 = require('../../../index');
 const index_3 = require('../../../index');
-const index_4 = require('../../../index');
+const injectables_1 = require('../../../injectables');
 class RuleService {
     static failRule() {
         return Promise.reject('bar');
@@ -43,11 +43,11 @@ __decorate([
 ], RuleService, "passRule", null);
 __decorate([
     index_2.RuleHandler('ComplexRule'),
-    __param(0, index_3.Auth()),
-    __param(1, index_4.Param('a')),
-    __param(2, index_4.Query('b')),
-    __param(3, index_4.Header('c')),
-    __param(4, index_4.Body())
+    __param(0, index_3.Resource('Foo')),
+    __param(1, injectables_1.Param('a')),
+    __param(2, injectables_1.Query('b')),
+    __param(3, injectables_1.Header('c')),
+    __param(4, injectables_1.Body())
 ], RuleService, "complexRule", null);
 exports.RuleService = RuleService;
 class RuleRouter {
@@ -76,6 +76,9 @@ class RuleRouter {
         return 'foo';
     }
     static complexRule() {
+        return 'foo';
+    }
+    static invalidRule() {
         return 'foo';
     }
 }
@@ -117,4 +120,8 @@ __decorate([
     index_1.Route('POST', '/rules/complex/:a'),
     index_2.Rule('ComplexRule')
 ], RuleRouter, "complexRule", null);
+__decorate([
+    index_1.Route('GET', '/rules/invalid'),
+    index_2.Rule('InvalidRule')
+], RuleRouter, "invalidRule", null);
 exports.RuleRouter = RuleRouter;
