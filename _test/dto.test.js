@@ -433,4 +433,64 @@ describe('DTO', () => {
 
     });
 
+    describe('Forced Types', () => {
+
+        describe('String', () => {
+
+            it('should pass the string type as string', (done) => {
+
+                request.get('http://localhost:8000/dto/string/foo', (err, response, body) => {
+                    assert.equal(err, null);
+                    assert.equal(body, 'true');
+                    assert.equal(response.statusCode, 200);
+
+                    done();
+                });
+
+            });
+
+            it('should pass the int type as string', (done) => {
+
+                request.get('http://localhost:8000/dto/string/10', (err, response, body) => {
+                    assert.equal(err, null);
+                    assert.equal(body, 'true');
+                    assert.equal(response.statusCode, 200);
+
+                    done();
+                });
+
+            });
+
+        });
+
+        describe('Integer', () => {
+
+            it('should fail to pass the string type as int', (done) => {
+
+                request.get('http://localhost:8000/dto/int/foo', (err, response, body) => {
+                    assert.equal(err, null);
+                    assert.equal(body, `Expected 'foo' to be an instance of Integer. Got string`);
+                    assert.equal(response.statusCode, 400);
+
+                    done();
+                });
+
+            });
+
+            it('should pass the int type as int', (done) => {
+
+                request.get('http://localhost:8000/dto/int/10', (err, response, body) => {
+                    assert.equal(err, null);
+                    assert.equal(body, 'true');
+                    assert.equal(response.statusCode, 200);
+
+                    done();
+                });
+
+            });
+
+        });
+
+    });
+
 });

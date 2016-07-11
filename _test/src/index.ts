@@ -10,6 +10,7 @@ import './response/router';
 import './middleware/router';
 import './rules/router';
 import './user/router';
+import './dto/router';
 
 Koakit.start({
   middleware: [

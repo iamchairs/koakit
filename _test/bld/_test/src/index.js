@@ -7,6 +7,7 @@ require('./response/router');
 require('./middleware/router');
 require('./rules/router');
 require('./user/router');
+require('./dto/router');
 index_1.Koakit.start({
     middleware: [
         bodyParser()
